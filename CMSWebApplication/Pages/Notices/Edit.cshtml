@@ -1,0 +1,45 @@
+﻿@page
+@model CMSWebApplication.Pages.Notices.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Notice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Notice.ID" />
+            <div class="form-group">
+                <label asp-for="Notice.Title" class="control-label"></label>
+                <input asp-for="Notice.Title" class="form-control" />
+                <span asp-validation-for="Notice.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notice.Detail" class="control-label"></label>
+                <input asp-for="Notice.Detail" class="form-control" />
+                <span asp-validation-for="Notice.Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notice.CreatedDate" class="control-label"></label>
+                <input asp-for="Notice.CreatedDate" class="form-control" />
+                <span asp-validation-for="Notice.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
