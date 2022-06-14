@@ -1,4 +1,6 @@
 ﻿@page
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 @model CMSWebApplication.Pages.Notices.DetailsModel
 
 @{
@@ -18,16 +20,22 @@
             @Html.DisplayFor(model => model.Notice.Title)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Notice.Detail)
+            @Html.DisplayNameFor(model => model.Notice.Absract)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Notice.Detail)
+            @Html.DisplayFor(model => model.Notice.Absract)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Notice.CreatedDate)
+            @Html.DisplayNameFor(model => model.Notice.CreatedOn)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Notice.CreatedDate)
+            @Html.DisplayFor(model => model.Notice.CreatedOn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Notice.HtmlText)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(Model.Notice.HtmlText)
         </dd>
     </dl>
 </div>

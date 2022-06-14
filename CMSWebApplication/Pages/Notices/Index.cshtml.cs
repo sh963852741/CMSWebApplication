@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CMSWebApplication.Data;
 using CMSWebApplication.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMSWebApplication.Pages.Notices
 {

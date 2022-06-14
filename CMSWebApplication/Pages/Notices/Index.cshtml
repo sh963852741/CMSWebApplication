@@ -1,4 +1,6 @@
 ﻿@page
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 @model CMSWebApplication.Pages.Notices.IndexModel
 
 @{
@@ -17,10 +19,10 @@
                 @Html.DisplayNameFor(model => model.Notice[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Notice[0].Detail)
+                @Html.DisplayNameFor(model => model.Notice[0].Absract)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Notice[0].CreatedDate)
+                @Html.DisplayNameFor(model => model.Notice[0].CreatedOn)
             </th>
             <th></th>
         </tr>
@@ -32,10 +34,10 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Detail)
+                @Html.DisplayFor(modelItem => item.Absract)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
+                @Html.DisplayFor(modelItem => item.CreatedOn)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

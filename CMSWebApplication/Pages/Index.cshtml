@@ -4,7 +4,29 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <h4 class="">公告版版</h4>
+    <div>
+        <div class="accordion" id="nontice-accordion">
+            @foreach (CMSWebApplication.Models.Notice notice in Model.Notice)
+            {
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="@("header" + notice.ID)">
+                        <button class="accordion-button @(notice.Importance > Models.Importance.Medium ? null : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@("collapse" + notice.ID)"
+                            aria-expanded="@(notice.Importance > Models.Importance.Medium ? "true" : "false")" aria-controls="@("collapse" + notice.ID)">
+                            <div>@notice.Title</div>
+                        </button>
+                    </h2>
+                    <div id="@("collapse" + notice.ID)"
+                     class="accordion-collapse collapse @(notice.Importance > Models.Importance.Medium ? "show" : null)"
+                     aria-labelledby="@("header" + notice.ID)">
+                        <div class="accordion-body">
+                            <div>@Html.Raw(notice.HtmlText)</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
 </div>

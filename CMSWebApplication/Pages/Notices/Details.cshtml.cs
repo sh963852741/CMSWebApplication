@@ -19,7 +19,7 @@ namespace CMSWebApplication.Pages.Notices
             _context = context;
         }
 
-      public Notice Notice { get; set; } = default!; 
+        public Notice Notice { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
